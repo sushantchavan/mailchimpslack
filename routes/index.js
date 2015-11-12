@@ -4,7 +4,8 @@ var router = express.Router();
 /* GET home page. */
 router.get('/', function(req, res, next) {
 	res.send('service working');
-})
+});
+
 router.post('/invite', function(req, res, next) {
   var data = req.body
   console.log('This is the request coming from mailchimp')
