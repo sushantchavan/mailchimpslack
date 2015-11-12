@@ -43,13 +43,20 @@ var self = module.exports = {
                             console.log('we get the response from slack')
                             console.log(response)
                             console.log(response.statusCode, body);
+                            user.slackinvite = true;
+                            user.save(function(err, savedUser){
+                                if(err) {console.log(err); callback(err, null);}
+                                else {
+                                    callback(err, user);
+                                }
+                            });
                         }
                     });
-                    var newUser = new User();
-                    newUser.email = data['email'];
 
     			}
-    		}
+    		} else {
+
+            }
     	});
     }
 

@@ -12,6 +12,7 @@ router.post('/invite', function(req, res, next) {
   var data = req.body
   console.log('This is the request coming from mailchimp')
   console.log(data);
+  User.
   res.send('POST request works');
 
 
