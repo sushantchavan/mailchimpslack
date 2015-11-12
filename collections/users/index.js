@@ -1,7 +1,10 @@
 var _ = require('underscore');
 var async = require('async');
+var request = require('request');
 
 var User = require('./userSchema').user;
+
+var SLACK_URL = process.env.SLACK_URL
 
 
 function sendSlackinvite () {
@@ -17,6 +20,33 @@ var self = module.exports = {
     			if(user.slackinvite) {
     				callback(err, user);
     			} else {
+                    var timestamp = Math.floor(Date.now() / 1000);
+                    var invite_url = 
+                    var body = {
+                        "email" : data['email'],
+                        "set_active":true,
+                        "token" : process.env.SLACK_TOKEN,
+                        "_attempts":1
+                    }
+
+                    request({
+                        url: SLACK_URL + 'api/users.admin.invite?t='+ timestamp, //URL to hit
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body:body //Set the body as a string
+                    }, function(error, response, body){
+                        if(error) {
+                            console.log(error);
+                        } else {
+                            console.log('we get the response from slack')
+                            console.log(response)
+                            console.log(response.statusCode, body);
+                        }
+                    });
+                    var newUser = new User();
+                    newUser.email = data['email'];
 
     			}
     		}
