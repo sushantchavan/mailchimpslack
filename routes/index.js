@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 
-var User = require('../collections/users'),
+var User = require('../collections/users');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -14,8 +14,6 @@ router.post('/invite', function(req, res, next) {
   console.log(data);
   User.
   res.send('POST request works');
-
-
 });
 
 router.get('/invite', function(req, res, next) {
