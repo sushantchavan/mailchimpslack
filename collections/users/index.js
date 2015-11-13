@@ -3,7 +3,8 @@ var request = require('request');
 var User = require('./userSchema').user;
 
 var SLACK_URL = process.env.SLACK_URL
-
+console.log('SLACK URL TO ping');
+console.log(SLACK_URL);
 
 function sendSlackinvite (user, callback) {
     console.log('inside send slack auto invite');
