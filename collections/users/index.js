@@ -6,6 +6,7 @@ var SLACK_URL = process.env.SLACK_URL
 
 
 function sendSlackinvite (user, callback) {
+    console.log('inside send slack auto invite');
     var timestamp = Math.floor(Date.now() / 1000);
     var body = {
             "email" : user.email,

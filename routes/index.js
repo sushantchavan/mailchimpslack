@@ -12,7 +12,12 @@ router.post('/invite', function(req, res, next) {
   var data = req.body
   console.log('This is the request coming from mailchimp')
   console.log(data);
-  User.
+  User.register(data, function(err, updatedUser){
+  	if(err) { res.send('invite failed'); }
+  	else {
+  		res.send('invite successfully sent')
+  	}
+  })
   res.send('POST request works');
 });
 
