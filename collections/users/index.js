@@ -8,6 +8,8 @@ console.log(SLACK_URL);
 
 function sendSlackinvite (user, callback) {
     console.log('inside send slack auto invite');
+    console.log('This is the user');
+    console.log(user);
     var timestamp = Math.floor(Date.now() / 1000);
     var body = {
             "email" : user.email,
