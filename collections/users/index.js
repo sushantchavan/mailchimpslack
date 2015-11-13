@@ -37,9 +37,12 @@ function sendSlackinvite (user, callback) {
 
 var self = module.exports = {
     register: function(data, callback) {
+        console.log('This is the data coming from the mailchimp');
+        console.log(data['email']);
     	User.findOne({'email': data['email']}, function(err, user){
     		if(err){console.log(err); callback(err, null);}
     		else if(user) {
+                console.log('let the world know what the user is all about');
     			if(user.slackinvite) {
     				callback(err, user);
     			} else {
