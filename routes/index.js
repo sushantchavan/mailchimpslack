@@ -10,6 +10,8 @@ router.get('/', function(req, res, next) {
 
 router.post('/invite', function(req, res, next) {
   var data = req.body;
+  console.log('data from the request');
+  console.log(data);
   User.register(data, function(err, updatedUser){
   	if(err) { res.send('invite failed'); }
   	else {
