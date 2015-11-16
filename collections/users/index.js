@@ -7,9 +7,6 @@ console.log('SLACK URL TO ping');
 console.log(SLACK_URL);
 
 function sendSlackinvite (user, callback) {
-    console.log('inside send slack auto invite');
-    console.log('This is the user');
-    console.log(user);
     var timestamp = Math.floor(Date.now() / 1000);
     var body = {
             "email" : user.email,
@@ -37,8 +34,6 @@ function sendSlackinvite (user, callback) {
 
 var self = module.exports = {
     register: function(data, callback) {
-        console.log('This is the data coming from the mailchimp');
-        console.log(data['email']);
     	User.findOne({'email': data['email']}, function(err, user){
     		if(err){console.log(err); callback(err, null);}
     		else if(user) {
