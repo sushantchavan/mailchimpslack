@@ -14,10 +14,14 @@ router.post('/invite', function(req, res, next) {
   User.register(data, function(err, updatedUser){
   	if(err) { res.send('invite failed'); }
   	else {
-  		res.send('invite successfully sent')
+  		if(updatedUser.slackinvite) {
+  			res.send('invite successfully sent');
+  		} else {
+  			res.send('something went wrong with the invite');
+  		}
+  		
   	}
   })
-  res.send('POST request works');
 });
 
 router.get('/invite', function(req, res, next) {
