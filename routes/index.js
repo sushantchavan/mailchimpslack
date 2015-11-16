@@ -9,9 +9,7 @@ router.get('/', function(req, res, next) {
 });
 
 router.post('/invite', function(req, res, next) {
-  var data = req.body
-  console.log('This is the request coming from mailchimp')
-  console.log(data);
+  var data = req.body;
   User.register(data, function(err, updatedUser){
   	if(err) { res.send('invite failed'); }
   	else {
