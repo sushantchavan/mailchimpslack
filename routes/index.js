@@ -9,8 +9,8 @@ router.get('/', function(req, res, next) {
 });
 
 router.post('/invite', function(req, res, next) {
-  var data = {}
-  var data['email'] = req.body['data[email]'];
+  var data = {};
+  data['email'] = req.body['data[email]'];
   User.register(data, function(err, updatedUser){
   	if(err) { res.send('invite failed'); }
   	else {
